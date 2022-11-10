@@ -11,7 +11,7 @@
       );
     });
   it('Verify the example page title', () => {
-    cy.byTestID('example-page-title').should('contain', 'Hello, Plugin!');
+    cy.get('[data-test="example-page-title"]').should('contain', 'Hello, Plugin!');
   });
 
     after(() => {

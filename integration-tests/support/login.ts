@@ -29,7 +29,7 @@ Cypress.Commands.add('login', (provider: string, username: string, password: str
     cy.clearCookie('openshift-session-token');
 
     const idp = provider || KUBEADMIN_IDP;
-    cy.byLegacyTestID('login').should('be.visible');
+    cy.get('[data-test="login"]').should('be.visible');
     cy.get('body').then(($body) => {
       if ($body.text().includes(idp)) {
         cy.contains(idp)
@@ -50,8 +50,8 @@ Cypress.Commands.add('logout', () => {
     if (win.SERVER_FLAGS?.authDisabled) {
        return;
     }
-    cy.byTestID('user-dropdown').click();
-    cy.byTestID('log-out').should('be.visible');
-    cy.byTestID('log-out').click({ force: true });
+    cy.get('[data-test="user-dropdown"]').click();
+    cy.get('[data-test="log-out"]').should('be.visible');
+    cy.get('[data-test="log-out"]').click({ force: true });
   });
 });
