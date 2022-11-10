@@ -13,7 +13,7 @@
     "i18n": "i18next \"src/**/*.{js,jsx,ts,tsx}\" [-oc] -c i18next-parser.config.js",
     "ts-node": "ts-node -O '{\"module\":\"commonjs\"}'",
     "lint": "eslint ./src --fix &&  stylelint \"src/**/*.css\" --allow-empty-input --fix",
-    "test-cypress": "cd integration-tests-cypress && cypress open --env openshift=true"
+    "test-cypress": "cd integration-tests && cypress open --env openshift=true"
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^5.15.4",

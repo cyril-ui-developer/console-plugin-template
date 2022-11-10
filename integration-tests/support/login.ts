@@ -22,15 +22,13 @@ Cypress.Commands.add('login', (provider: string, username: string, password: str
   cy.visit('http://localhost:9000/dashboards'); // visits baseUrl which is set in plugins/index.js
   cy.window().then((win: any) => {
     if (win.SERVER_FLAGS?.authDisabled) {
-     // cy.task('log', '  skipping login, console is running with auth disabled');
-      return;
+        return;
     }
 
     // Make sure we clear the cookie in case a previous test failed to logout.
     cy.clearCookie('openshift-session-token');
 
     const idp = provider || KUBEADMIN_IDP;
-  //  cy.task('log', `  Logging in as ${username || KUBEADMIN_USERNAME}`);
     cy.byLegacyTestID('login').should('be.visible');
     cy.get('body').then(($body) => {
       if ($body.text().includes(idp)) {
@@ -50,10 +48,8 @@ Cypress.Commands.add('logout', () => {
   // Check if auth is disabled (for a local development environment).
   cy.window().then((win: any) => {
     if (win.SERVER_FLAGS?.authDisabled) {
-  //    cy.task('log', '  skipping logout, console is running with auth disabled');
-      return;
+       return;
     }
-  //  cy.task('log', '  Logging out');
     cy.byTestID('user-dropdown').click();
     cy.byTestID('log-out').should('be.visible');
     cy.byTestID('log-out').click({ force: true });
