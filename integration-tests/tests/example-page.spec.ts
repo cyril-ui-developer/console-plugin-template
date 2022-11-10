@@ -1,19 +1,19 @@
-  describe('Example page plugin test', () => {
-    before(() => {
-      cy.login().then(()=> cy.visit('/example')      );
-      });
+describe('Example page plugin test', () => {
+  before(() => {
+    cy.login().then(() => cy.visit('/example'));
+  });
 
   it('Verify the url', () => {
-  cy.url().should(
-        'include',
-        '/example',
-      );
-    });
+    cy.url().should('include', '/example');
+  });
   it('Verify the example page title', () => {
-    cy.get('[data-test="example-page-title"]').should('contain', 'Hello, Plugin!');
+    cy.get('[data-test="example-page-title"]').should(
+      'contain',
+      'Hello, Plugin!',
+    );
   });
 
-    after(() => {
-     cy.logout();
-    });
+  after(() => {
+    cy.logout();
   });
+});
