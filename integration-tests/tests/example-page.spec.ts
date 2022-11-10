@@ -1,7 +1,6 @@
   describe('Example page plugin test', () => {
     before(() => {
       cy.login().then(()=> cy.visit('/example')      );
-     // 
       });
 
   it('Verify the url', () => {
